@@ -1,0 +1,810 @@
+/* Variabel CSS */
+:root {
+  --color-primary: #2c3e50;
+  --color-secondary: #34495e;
+  --color-accent: #16a085;
+  --color-accent-hover: #138a71;
+  --color-button: #2ecc71;
+  --color-button-hover: #25a25a;
+  --color-link: #3498db;
+  --color-link-hover: #2980b9;
+  --color-text: #333;
+  --color-text-light: #777;
+  --color-background: #f4f4f4;
+  --color-white: #fff;
+  --color-error: #e74c3c;
+  
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+  
+  --border-radius: 5px;
+  --box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Reset beberapa elemen untuk konsistensi */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Style */
+body {
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pastikan semua gambar responsif */
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* Tambahkan CSS ini ke file styles.css yang sudah ada */
+
+/* Tab untuk pilihan upload/kamera */
+.input-option-tabs {
+  display: flex;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.option-tab {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.option-tab.active {
+  border-bottom: 2px solid #0d6efd;
+  color: #0d6efd;
+  font-weight: 500;
+}
+
+.option-tab svg {
+  margin-right: 4px;
+}
+
+/* Styling untuk bagian kamera */
+.camera-container {
+  position: relative;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.camera-buttons {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.camera-button {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.camera-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
+#switchCameraBtn {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+/* Preview gambar */
+.image-preview {
+  margin: 16px 0;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #0d6efd;
+  margin: 20px auto;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Skip Link untuk aksesibilitas */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+form {
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem;
+}
+
+form input, form textarea, form button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.skip-link:focus {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  padding: var(--spacing-sm);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  z-index: 1000;
+  outline: 2px solid var(--color-accent);
+}
+
+/* Header */
+header {
+  background-color: var(--color-primary);
+  padding: var(--spacing-lg);
+  text-align: center;
+  color: var(--color-white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation */
+nav {
+  background-color: var(--color-secondary);
+  padding: var(--spacing-sm);
+  position: relative;
+}
+
+nav ul {
+  list-style-type: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav li {
+  margin: 0 var(--spacing-sm);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: 1.1rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  display: inline-block;
+}
+
+nav a:hover, nav a:focus {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Hamburger menu untuk mobile */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-white);
+  cursor: pointer;
+  padding: var(--spacing-sm);
+}
+
+/* Main content */
+main {
+  padding: var(--spacing-lg);
+  flex: 1;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--spacing-md);
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Form Styling - Base styles */
+.form-section {
+  max-width: 600px;      /* ← Ini mengatur lebar maksimum kotak */
+  margin: var(--spacing-xl) auto;  /* ← Ini mengatur margin atas/bawah dan auto kiri/kanan untuk centering */
+  padding: var(--spacing-xl);      /* ← Ini mengatur padding (ruang dalam) kotak */
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.form-section h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section label {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+}
+
+.form-section input,
+.form-section textarea {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+  outline: none;
+  border-color: var(--color-link);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+.form-section button {
+  padding: var(--spacing-md);
+  background: var(--color-button);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-top: var(--spacing-sm);
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.form-section button:hover,
+.form-section button:focus {
+  background: var(--color-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-message {
+  margin-top: var(--spacing-md);
+  text-align: center;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+}
+
+.error-message {
+  color: var(--color-error);
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.success-message {
+  color: #27ae60;
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+/* Register Form */
+
+
+/* Login Form */
+
+/* Stories List Styling */
+.stories-section {
+  max-width: 1200px;
+  margin: var(--spacing-lg) auto;
+}
+
+.stories-section h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.story-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.story-item {
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.story-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.story-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.story-item:hover .story-image {
+  transform: scale(1.05);
+}
+
+.story-content {
+  padding: var(--spacing-md);
+}
+
+.story-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+.story-desc {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.5;
+}
+
+.story-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid #eee;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-xl);
+}
+
+.pagination button {
+  background: var(--color-link);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: 0 var(--spacing-xs);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.pagination button:hover,
+.pagination button:focus {
+  background: var(--color-link-hover);
+  transform: translateY(-2px);
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Add Story Form Styling */
+.add-story-section {
+  max-width: 700px;
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-lg);
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.add-story-section h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.add-story-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-story-section label {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+}
+
+.add-story-section input[type="text"],
+.add-story-section textarea {
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.add-story-section input[type="text"]:focus,
+.add-story-section textarea:focus {
+  outline: none;
+  border-color: var(--color-link);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+.add-story-section textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.image-preview {
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  border: 1px dashed #ddd;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: var(--border-radius);
+  display: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.location-map {
+  height: 300px;
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-story-section button {
+  padding: var(--spacing-md);
+  background: var(--color-button);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-top: var(--spacing-sm);
+  font-size: 16px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.add-story-section button:hover,
+.add-story-section button:focus {
+  background: var(--color-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#addStoryMessage {
+  margin-top: var(--spacing-md);
+  text-align: center;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+}
+
+/* File upload styling */
+.file-input-container {
+  position: relative;
+  margin-bottom: var(--spacing-md);
+}
+
+.file-input-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-link);
+  color: var(--color-white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.file-input-label:hover,
+.file-input-label:focus {
+  background: var(--color-link-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.file-input-label svg {
+  margin-right: var(--spacing-sm);
+}
+
+.file-input {
+  position: absolute;
+  left: -9999px;
+}
+
+.file-name {
+  margin-top: var(--spacing-xs);
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+/* Loading indicator */
+.loading {
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.loading-spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--color-link);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Base button styling */
+button[type="submit"] {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-button);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin: var(--spacing-sm) 0;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: var(--color-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: var(--transition);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #1a2634;
+    --color-secondary: #2c3e50;
+    --color-accent: #16a085;
+    --color-accent-hover: #138a71;
+    --color-button: #2ecc71;
+    --color-button-hover: #25a25a;
+    --color-link: #3498db;
+    --color-link-hover: #2980b9;
+    --color-text: #f4f4f4;
+    --color-text-light: #bbb;
+    --color-background: #121212;
+    --color-white: #1e1e1e;
+    --color-error: #e74c3c;
+  }
+  
+  .form-section, .add-story-section, .story-item {
+    background: #242424;
+    border: 1px solid #333;
+  }
+  
+  input, textarea {
+    background-color: #333;
+    color: #f4f4f4;
+    border-color: #444;
+  }
+  
+  .image-preview {
+    background-color: #333;
+    border-color: #444;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  /* Hamburger menu for mobile */
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: var(--spacing-md);
+    top: var(--spacing-sm);
+  }
+  
+  nav ul {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  nav ul.active {
+    display: flex; /* Show when active class is added */
+  }
+  
+  nav li {
+    margin: var(--spacing-xs) 0;
+    width: 100%;
+  }
+  
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: var(--spacing-md);
+    font-size: 1.2rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  /* Form styles for mobile */
+  .form-section, .add-story-section {
+    padding: var(--spacing-md);
+    margin: var(--spacing-md);
+    width: auto;
+  }
+  
+  /* Stories list for mobile */
+  .story-list {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Adjust padding and margins */
+  main {
+    padding: var(--spacing-md);
+  }
+  
+  .pagination button {
+    padding: var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+  
+  /* Make location map smaller on mobile */
+  .location-map {
+    height: 200px;
+  }
+}
+
+/* Add necessary JavaScript for hamburger menu */
+/* 
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('nav ul');
+  
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+    });
+  }
+});
+*/
+
+/* Accessibility focus styles */
+a:focus, button:focus, input:focus, textarea:focus, [tabindex]:focus {
+  outline: 3px solid rgba(52, 152, 219, 0.5);
+  outline-offset: 2px;
+}
+
+/* Additional animation for story cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.story-item {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.story-item:nth-child(1) { animation-delay: 0.1s; }
+.story-item:nth-child(2) { animation-delay: 0.2s; }
+.story-item:nth-child(3) { animation-delay: 0.3s; }
+.story-item:nth-child(4) { animation-delay: 0.4s; }
+.story-item:nth-child(5) { animation-delay: 0.5s; }
+.story-item:nth-child(6) { animation-delay: 0.6s; }

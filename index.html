@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Leaflet Map CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <title>Story App</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Lewati ke konten utama</a>
+
+  <!-- Header -->
+  <header>
+    <h1>Story App</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <button class="hamburger" aria-label="Toggle menu">☰</button>
+    <ul>
+      <li><a href="#/login" aria-label="Login">Login</a></li>
+      <li><a href="#/register" aria-label="Register">Register</a></li>
+      <li><a href="#/stories" aria-label="Daftar Cerita">Stories</a></li>
+      <li><a href="#/add-story" aria-label="Tambah Cerita">Tambah Story</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main" role="main"></main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Khairil. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript untuk menu mobile -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('nav ul');
+      
+      if (hamburger) {
+        hamburger.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+
+  <!-- PENTING: Tambahkan script aplikasi Anda di sini -->
+  <script src="app.js" type="module"></script>
+</body>
+</html>
